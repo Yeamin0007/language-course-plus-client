@@ -21,7 +21,7 @@ const MiddleBar = () => {
             {
              categories.map(category => 
                 <Card style={{ width: '18rem' }} key={category.id}>
-                <Card.Img variant="top" src={category.img} />
+                <Card.Img variant="top" src={category.img}style={{height: '150px'}}/>
                 <Card.Body>
                   <Card.Title>{category.name}</Card.Title>
                   <Button variant="outline-primary"><Link to={`/category/${category.id}`} className="text-decoration-none text-dark">les goo</Link></Button>
