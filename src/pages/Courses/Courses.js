@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import LeftBar from '../../Bars/LeftSideBar/LeftBar';
+import MiddleBar from '../../Bars/MiddleBar/MiddleBar';
 
 const Courses = () => {
     return (
@@ -10,7 +11,7 @@ const Courses = () => {
                     <LeftBar></LeftBar>
                 </Col>
                 <Col lg="9">
-                    <h2>main course</h2>
+                    <MiddleBar></MiddleBar>
                 </Col>
              </Row>
         </Container>

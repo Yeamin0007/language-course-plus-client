@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -10,13 +11,14 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand className='text-warning' href="/">CoursePlus</Navbar.Brand>
+        <Navbar.Brand><Link className='text-decoration-none text-warning fs-2'>CoursePlus</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/courses">Courses</Nav.Link>
-            <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="/faq">FAQ</Nav.Link>
+          <Nav className="me-auto ">
+            <Nav.Link><Link className='text-decoration-none text-white' to="/">Home</Link></Nav.Link>
+            <Nav.Link><Link className='text-decoration-none text-white' to="/courses">Courses</Link></Nav.Link>
+            <Nav.Link><Link className='text-decoration-none text-white' to="/blog">Blog</Link></Nav.Link>
+            <Nav.Link><Link className='text-decoration-none text-white' to="/faq">FAQ</Link></Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
