@@ -1,0 +1,9 @@
+.width-box{
+    width: 25%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 650px){
+    .width-box{
+        width: 100%;
+    } 
+}
