@@ -1,17 +1,21 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import './Login.css'
 
 const Login = () => {
+  const[error, setError] =useState('');
 
   const {loginUser} = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
 
   const handleLogin = event =>{
@@ -26,9 +30,12 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setError('');
+        navigate(from, {replace: true});
     })
     .catch(error=> {
         console.error(error)
+        setError(error.message);
     });
 }
 
@@ -42,6 +49,7 @@ const Login = () => {
      .then(result =>{
       const user = result.user;
       console.log(user);
+      navigate('/');
      })
      .catch(error => console.error(error))
   }
@@ -56,9 +64,7 @@ const Login = () => {
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
           <Form.Label className='text-warning'>Email address</Form.Label>
           <Form.Control name='email' type="email" placeholder="Enter email" required/>
-          <Form.Text className="text-white">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          
         </Form.Group>
   
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -81,6 +87,9 @@ const Login = () => {
                 <Button className='border border-warning rounded-2 mb-2 bg-light text-dark px-5'><FaGithub></FaGithub> Login With GitHub</Button>
             </ButtonGroup>
         </div>
+        <Form.Text className="text-danger">
+            {error}
+          </Form.Text>
 
       </Form>
        </div>

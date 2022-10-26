@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import './Registration.css'
 
 const Registration = () => {
+    const[error, setError] =useState('');
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -22,8 +24,13 @@ const Registration = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            setError('');
+            navigate('/login');
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            console.error(error)
+            setError(error.message);
+        });
     }
 
     return (
@@ -59,8 +66,8 @@ const Registration = () => {
           Register
         </Button>
         </div>
-        <Form.Text className="text-white">
-            We'll never share your email with anyone else.
+        <Form.Text className="text-danger">
+            {error}
           </Form.Text>
       </Form>
        </div>
