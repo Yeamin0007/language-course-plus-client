@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import LeftBar from '../LeftSideBar/LeftBar';
 
 
 const Header = () => {
@@ -19,16 +20,8 @@ const Header = () => {
             <Nav.Link><Link className='text-decoration-none text-white' to="/courses">Courses</Link></Nav.Link>
             <Nav.Link><Link className='text-decoration-none text-white' to="/blog">Blog</Link></Nav.Link>
             <Nav.Link><Link className='text-decoration-none text-white' to="/faq">FAQ</Link></Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+            <NavDropdown className='d-lg-none' title="List" id="collasible-nav-dropdown">
+              <LeftBar></LeftBar>
             </NavDropdown>
           </Nav>
           <Nav>

@@ -24,7 +24,7 @@ const MiddleBar = () => {
                 <Card.Img variant="top" src={category.img}style={{height: '150px'}}/>
                 <Card.Body>
                   <Card.Title>{category.name}</Card.Title>
-                  <Button variant="outline-primary"><Link to={`/category/${category.id}`} className="text-decoration-none text-dark">les goo</Link></Button>
+                  <button className='btn btn-outline-secondary' ><Link to={`/category/${category.id}`} className="text-decoration-none text-dark">Details</Link></button>
                 </Card.Body>
               </Card>
                 

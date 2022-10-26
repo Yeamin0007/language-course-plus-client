@@ -2,7 +2,8 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Checkout from '../Checkout/Checkout';
 
 const Category = () => {
     const course = useLoaderData();
@@ -11,7 +12,7 @@ const Category = () => {
     return (
         <Container>
             <Card key={id} className="m-5">
-        <Card.Header ></Card.Header>
+        <Card.Header className='fs-4 fw-semibold text-center text-white bg-secondary' > Everything You Need to Know About This Course</Card.Header>
         <Card.Body>
        
         <Card.Title className='fs-2'>{title}</Card.Title>
@@ -19,7 +20,7 @@ const Category = () => {
         <Card.Text>
           {details}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="outline-warning"><Link className='text-decoration-none text-dark' to={`/checkout/${id}`}>Get premium access.</Link></Button>
         </Card.Body>
         </Card>
         </Container>

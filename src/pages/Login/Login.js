@@ -4,26 +4,29 @@ import Form from 'react-bootstrap/Form';
 
 const Login = () => {
     return (
-       <div className='container pb-3 mt-3 border border-solid-2'>
-         <Form>
+       <div className='container bg-dark border border-warning pb-3 border w-25 d-flex justify-content-center mt-5'>
+         <Form className='py-5'>
+          <h2 className='text-center pb-3 fw-bold text-warning'>Login Here</h2>
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
+          <Form.Label className='text-warning'>Email address</Form.Label>
+          <Form.Control name='email' type="email" placeholder="Enter email" required/>
+          <Form.Text className="text-white">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
   
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Label className='text-warning'>Password</Form.Label>
+          <Form.Control name='password' type="password" placeholder="Password" required/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group className="mb-3 text-white" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
+        <div className='d-flex justify-content-center'>
+        <Button variant="warning" type="submit">
+          Login
         </Button>
+        </div>
       </Form>
        </div>
     );
