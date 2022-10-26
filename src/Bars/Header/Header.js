@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FaUser } from 'react-icons/fa';
+import { FaMoon, FaSun, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import LeftBar from '../LeftSideBar/LeftBar';
@@ -12,17 +12,23 @@ import LeftBar from '../LeftSideBar/LeftBar';
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext)
+  const [state, setState] = useState(false);
 
   const handleLogOut =() =>{
     logOut()
     .then(()=> {})
     .catch(error => console.error(error))
   }
+
+  const handleToggle = () => {
+    setState(!state);
+}
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand><Link to="/" className='text-decoration-none text-warning fs-2'>CoursePlus</Link></Navbar.Brand>
+        <Image style={{height:'55px'}} roundedCircle src='https://cdn.xxl.thumbs.canstockphoto.com/interrelated-flags-countries-flat-icon-concept-of-language-learning-in-the-form-interrelated-flags-eps-vectors_csp50974833.jpg' ></Image>
+        <Navbar.Brand><Link to="/" className='text-decoration-none text-warning fs-2 ms-2'>CoursePlus</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto ">
@@ -34,6 +40,9 @@ const Header = () => {
               <LeftBar></LeftBar>
             </NavDropdown>
           </Nav>
+          <Button onClick={handleToggle} variant={state ? 'dark' : 'light'}>
+                            {state ? <FaMoon></FaMoon> : <FaSun></FaSun>}
+                        </Button>
           <Nav>
             
             <Nav.Link>
@@ -42,7 +51,7 @@ const Header = () => {
                <>
                 {
                 user?.photoURL?
-                <Image style={{height:'35px'}} roundedCircle src={user?.photoURL}></Image>
+                <Image style={{height:'35px'}} roundedCircle src={user?.photoURL} title={user.displayName}></Image>
                 :
                 <FaUser className='text-white me-3'></FaUser>
               }

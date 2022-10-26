@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
-import './Login.css'
+
 
 const Login = () => {
   const[error, setError] =useState('');
@@ -43,6 +43,7 @@ const Login = () => {
 
   const {providerLogin} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const handleGoogleSignIn =() =>{
      providerLogin(googleProvider)
@@ -54,11 +55,21 @@ const Login = () => {
      .catch(error => console.error(error))
   }
 
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            navigate(from, {replace: true});
+        })
+        .catch(error => console.error(error))
+}
+
 
 
 
     return (
-       <div className='container bg-dark border border-warning pb-3 border d-flex justify-content-center mt-5 width-box'>
+       <div className='container bg-dark border border-warning pb-3 border d-flex justify-content-center mt-5 '>
          <Form onSubmit={handleLogin} className='py-5'>
           <h2 className='text-center pb-3 fw-bold text-warning'>Login Here</h2>
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
@@ -84,7 +95,7 @@ const Login = () => {
         <div className='my-4 d-flex justify-content-center'>
         <ButtonGroup vertical>
                 <Button onClick={handleGoogleSignIn} className='border border-warning mb-3 rounded-2 bg-light text-success px-5'><FaGoogle className='text-success'></FaGoogle> Login With Google</Button>
-                <Button className='border border-warning rounded-2 mb-2 bg-light text-dark px-5'><FaGithub></FaGithub> Login With GitHub</Button>
+                <Button onClick={handleGithubSignIn} className='border border-warning rounded-2 mb-2 bg-light text-dark px-5'><FaGithub></FaGithub> Login With GitHub</Button>
             </ButtonGroup>
         </div>
         <Form.Text className="text-danger">

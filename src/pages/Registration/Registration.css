@@ -1,9 +1,0 @@
-.width-box2{
-    width: 25%; 
-}
-
-@media screen and (min-width: 200px) and (max-width: 650px){
-    .width-box2{
-        width: 100%;
-    }
- }

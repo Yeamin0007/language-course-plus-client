@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
-import './Registration.css'
+
 
 const Registration = () => {
     const[error, setError] =useState('');
@@ -44,7 +44,7 @@ const Registration = () => {
     }
 
     return (
-        <div className='container bg-dark border border-warning pb-3 border d-flex justify-content-center mt-5 width-box2 '>
+        <div className='container bg-dark border border-warning pb-3 border d-flex justify-content-center mt-5'>
          <Form onSubmit={handleSubmit} className='py-5 '>
           <h2 className='text-center pb-3 fw-bold text-warning'>Register Here</h2>
 
