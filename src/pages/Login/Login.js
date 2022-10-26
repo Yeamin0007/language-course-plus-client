@@ -4,11 +4,35 @@ import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import './Login.css'
 
 const Login = () => {
+
+  const {loginUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+
+  const handleLogin = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password= form.password.value;
+    console.log(email, password);
+
+    loginUser(email, password)
+    .then(result=>{
+        const user = result.user;
+        console.log(user);
+        form.reset();
+    })
+    .catch(error=> {
+        console.error(error)
+    });
+}
+
+
 
   const {providerLogin} = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
@@ -27,7 +51,7 @@ const Login = () => {
 
     return (
        <div className='container bg-dark border border-warning pb-3 border d-flex justify-content-center mt-5 width-box'>
-         <Form className='py-5'>
+         <Form onSubmit={handleLogin} className='py-5'>
           <h2 className='text-center pb-3 fw-bold text-warning'>Login Here</h2>
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
           <Form.Label className='text-warning'>Email address</Form.Label>

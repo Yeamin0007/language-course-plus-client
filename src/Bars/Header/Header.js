@@ -44,12 +44,13 @@ const Header = () => {
                 user?.photoURL?
                 <Image style={{height:'35px'}} roundedCircle src={user?.photoURL}></Image>
                 :
-                <FaUser className='text-white'></FaUser>
+                <FaUser className='text-white me-3'></FaUser>
               }
                 <Button onClick={handleLogOut} className='mx-3' variant="outline-warning">Logout</Button>
                </>
                 :
                 <>
+                
                 <Button className='mx-2 ' action variant="outline-warning"><Link className='text-decoration-none text-white' to='/login'>Login</Link></Button>
                 
                 </>

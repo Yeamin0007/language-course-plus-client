@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider';
 import './Registration.css'
 
 const Registration = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password= form.password.value;
+        console.log(name, photoURL, email, password);
+
+        createUser(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            form.reset();
+        })
+        .catch(error => console.error(error));
+    }
+
     return (
         <div className='container bg-dark border border-warning pb-3 border d-flex justify-content-center mt-5 width-box2 '>
-         <Form className='py-5 '>
+         <Form onSubmit={handleSubmit} className='py-5 '>
           <h2 className='text-center pb-3 fw-bold text-warning'>Register Here</h2>
 
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
@@ -17,7 +38,7 @@ const Registration = () => {
 
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
           <Form.Label className='text-warning'>Photo URL</Form.Label>
-          <Form.Control name='PhotoURL' type="text" placeholder="Enter Photo URL" required/>
+          <Form.Control name='photoURL' type="text" placeholder="Enter Photo URL"/>
         </Form.Group>
 
         <Form.Group className="mb-3 mt-4" controlId="formBasicEmail">
