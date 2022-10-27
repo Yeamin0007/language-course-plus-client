@@ -41,7 +41,7 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Button onClick={handleToggle} variant={state ? 'dark' : 'light'}>
-                            {state ? <FaMoon></FaMoon> : <FaSun></FaSun>}
+                            {state ? <FaMoon></FaMoon> : <FaSun ></FaSun>}
                         </Button>
           <Nav>
             

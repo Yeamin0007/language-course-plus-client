@@ -13,7 +13,7 @@ const Checkout = () => {
 
     return (
         <Container className='d-flex justify-content-center my-5'>
-            <Card style={{ width: '50rem' }}>
+            <Card style={{ width: '50rem' }} className='border-info'>
         
         <Card.Body>
         <Card.Title className='fs-2'>{title}</Card.Title>

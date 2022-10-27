@@ -16,10 +16,10 @@ const MiddleBar = () => {
         <div>
             <h4 className='fs-1 text-center fw-bold mt-3 '>Learn Language With Us</h4>
             
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 mt-5">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 mt-5 p-3 shadow">
             {
              categories.map(category => 
-                <Card style={{ width: '18rem' }} key={category.id}>
+                <Card className='shadow' style={{ width: '18rem' }} key={category.id}>
                 <Card.Img variant="top" src={category.img}style={{height: '150px'}}/>
                 <Card.Body>
                   <Card.Title>{category.name}</Card.Title>

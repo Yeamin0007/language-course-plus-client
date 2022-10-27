@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Project Name - CoursePlus
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Live Site Link
+https://course-plus-e412d.web.app/
 
-## Available Scripts
+# About
+CoursePlus is a language learning site. Here you can find different language courses with details.
+Courseplus offers access to over 60 million users around the world. The platform online allows you to use some free features, including reading, writing, speaking and listening lessons. You can also network with other language learners. 
+ 
+ ## Packages
+ During this project I Used :
+ 1. React-Router-Dom
+ 2. React-Bootstarp
+ 3. React-Icons
+ 4. React-to-PDF
 
-In the project directory, you can run:
+## Authentication
+For authentication I used firebase authetication.
+And also used firebase to host this project.
 
-### `npm start`
+## Server Loading
+Here I used "vercel" to make a link that helped me to make the local data, global.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Work Process
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1) After creating a responsive navbar I used react router to create different routes.
+2) Then I used loader to get data from server & useLoaderData function to dynamically pass to value from the API to components.
+3) After destructuring the loadedData ,I used map function on objects to create the differnt courses and details sections for the site.
+4) I made a private route to secure the premium details. And you can't visit it without making an account.
+5) I used an Accordion from react bootstrap to make a FAQ section for clients.
+6) Last but not least I made the whole site responsive and deployed the project in firebase.

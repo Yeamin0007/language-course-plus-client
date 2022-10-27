@@ -17,7 +17,7 @@ const LeftBar = () => {
             <div>
             {
              categories.map(category =><ListGroup>
-                <ListGroup.Item className='mb-2' key={category.id}>
+                <ListGroup.Item className='mb-2 shadow-sm' key={category.id}>
                     <Link to={`/category/${category.id}`} className='text-decoration-none text-dark fs-6 fw-bold '>
                         {category.name}
                     </Link>
