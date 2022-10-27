@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import { FaStar } from "react-icons/fa";
 
 
+
 const Checkout = () => {
     const checkout = useLoaderData();
     const {title, img, price, rating} = checkout;
@@ -31,7 +32,9 @@ const Checkout = () => {
         <Button variant="outline-secondary">Purchess Now</Button>
             </Card.Body>
         </Card>
+
         </Container>
+        
     );
 };
 

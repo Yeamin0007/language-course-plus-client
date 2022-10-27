@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ const MiddleBar = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/categories')
+        fetch('https://course-plus-server.vercel.app/categories')
         .then(res => res.json())
         .then(data => setCategories(data))
     },[])

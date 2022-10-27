@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
 
@@ -45,7 +45,7 @@ const Home = () => {
             <div className='mt-5  bg-info rounded-3'>
               <div className='p-5 text-center text-align-center text-white'>
                 <h2 className='fw-bold'>Learn With Fun</h2>
-                <p className='fw-semibold'>There’s no time like the present to learn a new language. And whether you prefer the desktop over your mobile, or you’re looking for additional resources to learn a language, there are TONS of options out there. Courseplus offers access to over 60 million users around the world. The platform online allows you to use some free features, including reading, writing, speaking and listening lessons. You can also network with other language learners. While they do have flashcard resources, the main benefit is in the user’s ability to work directly with native speakers. Using your webcam, audio connection, or the Busuu chat window, you can ask and answer various questions to real people. </p>
+                <p className='fw-semibold'><span className='fs-2 fw-bold'>"</span>There’s no time like the present to learn a new language. And whether you prefer the desktop over your mobile, or you’re looking for additional resources to learn a language, there are TONS of options out there. Courseplus offers access to over 60 million users around the world. The platform online allows you to use some free features, including reading, writing, speaking and listening lessons. You can also network with other language learners. While they do have flashcard resources, the main benefit is in the user’s ability to work directly with native speakers. Using your webcam, audio connection, or the Busuu chat window, you can ask and answer various questions to real people.<span className='fs-2 fw-bold'>"</span></p>
                 <Button variant='outline-warning'><Link className='text-decoration-none text-white'to='/courses'>Get Started</Link></Button>
               </div>
             </div>

@@ -9,11 +9,13 @@ import Courses from "../../pages/Courses/Courses";
 import Category from "../../pages/Category/Category";
 import Checkout from "../../pages/Checkout/Checkout";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Error from "../../pages/Error/Error";
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element:<Main></Main>, 
+        errorElement: <Error></Error>,
         children:[
             {
                 path: '/',
@@ -34,12 +36,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://course-plus-server.vercel.app/category/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://course-plus-server.vercel.app/category/${params.id}`)
 
             },
             {

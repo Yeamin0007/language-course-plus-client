@@ -82,9 +82,6 @@ const Login = () => {
           <Form.Label className='text-warning'>Password</Form.Label>
           <Form.Control name='password' type="password" placeholder="Password" required/>
         </Form.Group>
-        <Form.Group className="mb-3 text-white" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
         <p><small className='text-white'>Don't Have an account? <Link className='text-warning' to='/register'>Register</Link></small></p>
         <div className='d-flex justify-content-center'>
         <Button variant="warning" type="submit">
