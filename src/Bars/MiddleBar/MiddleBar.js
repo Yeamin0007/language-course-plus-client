@@ -14,7 +14,7 @@ const MiddleBar = () => {
 
     return (
         <div>
-            <h4 className='fs-1 text-center fw-bold mt-3 '>Learn Language With Us</h4>
+            <h4 className='fs-1 text-center fw-bold mt-3 text-info '>Learn Language With Us</h4>
             
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 gap-4 mt-5 p-3 shadow">
             {
